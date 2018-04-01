@@ -1,0 +1,24 @@
+{
+  "name": "ocr-with-tesseract",
+  "version": "1.0.0",
+  "description": "an ocr system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arularmstrong/OCR-with-tesseract.git"
+  },
+  "keywords": [
+    "ocr",
+    "tesseract"
+  ],
+  "author": "arul armstrong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arularmstrong/OCR-with-tesseract/issues"
+  },
+  "homepage": "https://github.com/arularmstrong/OCR-with-tesseract#readme"
+}
