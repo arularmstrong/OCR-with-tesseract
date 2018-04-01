@@ -1,0 +1,67 @@
+<html>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="itp.js"></script>
+<script src="handler.js"></script>
+<style>
+ #display{
+    width: 300px;
+
+    border: 2px solid black;
+    padding: 25px;
+    margin: 50px 800px;
+}
+ #imgdisplay{
+    width: 300px;
+ 
+    padding: 25px;
+    margin: 60px 40px;
+	float:left;
+}
+</style>
+<body>
+
+ <input type='file' id="imgInp" /><input type="button" id="process" value="Process"/>
+<div id="imgdisplay">  <img id="blah" src="#" alt="your image" /></div>
+
+
+<div id="display">Content will be displayed here</div>
+
+<script>
+document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+}, false);
+
+document.getElementById("process")
+        .addEventListener("click", function(e) {
+		var fullPath = document.getElementById('imgInp').value;
+if (fullPath) {
+    var startIndex = (fullPath.indexOf('\\') >= 0 ? fullPath.lastIndexOf('\\') : fullPath.lastIndexOf('/'));
+    var filename = fullPath.substring(startIndex);
+    if (filename.indexOf('\\') === 0 || filename.indexOf('/') === 0) {
+        filename = filename.substring(1);
+    }
+    
+}
+ //           var name = document.getElementById("filename").value;
+          	processimg(filename);
+        });
+		
+function readURL(input) {
+
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('#blah').attr('src', e.target.result);
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("#imgInp").change(function() {
+  readURL(this);
+});
+</script>
+</body>
+</html>
